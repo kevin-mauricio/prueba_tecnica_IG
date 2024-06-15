@@ -1,0 +1,25 @@
+<h1>Lista de clientes   </h1>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">TIPO DOCUMENTOS</th>
+        <th scope="col">NUMERO DOCUMENTO</th>
+        <th scope="col">APELLIDOS</th>
+        <th scope="col">RESIDENCIA</th>
+        <th scope="col">CIUDAD</th>
+      </tr>
+    </thead>
+    <tbody>
+        @for (cliente of clientes; track cliente.id) {
+            <tr>
+              <th scope="row">{{cliente.cliente_id}}</th>
+              <td>{{cliente.tipo_documento}}</td>
+              <td>{{cliente.numero_documento}}</td>
+              <td>{{cliente.apellidos}}</td>
+              <td>{{cliente.residencia}}</td>
+              <td>{{cliente.ciudad}}</td>
+            </tr>
+        }
+    </tbody>
+  </table>

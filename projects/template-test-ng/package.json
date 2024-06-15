@@ -1,0 +1,15 @@
+{
+  "name": "template-test-ng",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@angular/common": "^18.0.0",
+    "@angular/core": "^18.0.0"
+  },
+  "dependencies": {
+    "@popperjs/core": "^2.11.8",
+    "bootstrap": "^5.3.3",
+    "jquery": "^3.7.1",
+    "tslib": "^2.3.0"
+  },
+  "sideEffects": false
+}
