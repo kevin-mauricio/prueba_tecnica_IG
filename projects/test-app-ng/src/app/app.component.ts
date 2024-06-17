@@ -9,6 +9,9 @@ import { Cliente } from './models/cliente';
 import { LineaCreditoService } from './services/lineacredito.service';
 import { LineaCredito } from './models/LineaCredito';
 import { FormControl, FormGroup } from '@angular/forms';
+import { FormLineaCreditoComponent } from './components/form-linea-credito/form-linea-credito.component';
+import { ListLineasCreditoComponent } from './components/list-lineas-credito/list-lineas-credito.component';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -18,6 +21,8 @@ import { FormControl, FormGroup } from '@angular/forms';
     MenuComponent,
     BodyComponent,
     FooterComponent,
+    FormLineaCreditoComponent,
+    ListLineasCreditoComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
@@ -26,13 +31,8 @@ export class AppComponent implements OnInit {
   title = 'test-app-ng';
 
   clientes: Cliente[] = [];
-  lineaCredito: LineaCredito = {};
-
-  lineaCreditoForm = new FormGroup({
-    valor_maximo: new FormControl(),
-    valor_minimo: new FormControl(),
-    plazo_maximo: new FormControl(),
-  });
+  lineaCredito$!: LineaCredito;
+  lineasCredito: LineaCredito[] = [];
   
   constructor(
     private clienteService: ClienteService,
@@ -43,6 +43,12 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllClientes();
+    this.getLineasCredito();
+  }
+
+  handleFormLineaCredito(lineaCredito: LineaCredito) {
+    this.lineaCredito$ = lineaCredito;
+    this.postLineaCredito();
   }
 
   getAllClientes() {
@@ -50,6 +56,21 @@ export class AppComponent implements OnInit {
       this.clientes = data;
       console.log(data);
     });
+  }
+
+  getLineasCredito(): void {
+    this.lineaCreditoService.getLineasCredito().subscribe( data => {
+      this.lineasCredito = data;
+      console.log(data);
+    });
+  }
+
+  postLineaCredito() {
+    this.lineaCreditoService.createLineaCredito(this.lineaCredito$).subscribe( response => {
+      console.log("status ok -> " + response);
+    }
+
+    );
   }
 
 }

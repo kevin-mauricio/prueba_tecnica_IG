@@ -1,0 +1,19 @@
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">valor minimo</th>
+        <th scope="col">valor maximo</th>
+        <th scope="col">plazo maximo</th>
+      </tr>
+    </thead>
+    <tbody>
+        @for (lineaCredito of lineasCredito; track lineaCredito.creditoId) {
+            <tr>
+              <th scope="row">{{lineaCredito.creditoId}}</th>
+              <td>{{lineaCredito.valorMinimo}}</td>
+              <td>{{lineaCredito.valorMaximo}}</td>
+              <td>{{lineaCredito.plazoMaximo}}</td>
+        }
+    </tbody>
+  </table>

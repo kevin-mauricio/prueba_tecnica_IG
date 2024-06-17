@@ -53,7 +53,7 @@ CREATE TABLE lineas_credito(
     l_credito_id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     valor_maximo FLOAT NOT NULL,
     valor_minimo FLOAT NOT NULL,
-    plazo_maximo TIMESTAMP NOT NULL
+    plazo_maximo SMALLINT NOT NULL
 );
 
 CREATE TABLE nuevo_credito(

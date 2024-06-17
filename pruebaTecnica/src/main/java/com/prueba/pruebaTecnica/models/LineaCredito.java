@@ -2,13 +2,15 @@ package com.prueba.pruebaTecnica.models;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDate;
+
 @Entity
 @Table(name = "lineas_credito")
 public class LineaCredito {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "l_credito_id")
-    private Integer LCreditoId;
+    private Integer creditoId;
 
     @Column(name = "valor_maximo", nullable = false)
     private Float valorMaximo;
@@ -35,12 +37,12 @@ public class LineaCredito {
         this.valorMaximo = valorMaximo;
     }
 
-    public Integer getLCreditoId() {
-        return this.LCreditoId;
+    public Integer getCreditoId() {
+        return creditoId;
     }
 
-    public void setLCreditoId(Integer LCreditoId) {
-        this.LCreditoId = LCreditoId;
+    public void setCreditoId(Integer creditoId) {
+        this.creditoId = creditoId;
     }
 
     public Float getValorMinimo() {

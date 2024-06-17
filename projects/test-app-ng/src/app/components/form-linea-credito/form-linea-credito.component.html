@@ -1,0 +1,15 @@
+<form [formGroup]="formLineaCredito" (ngSubmit)="sendLineaCredito()">
+    <div class="mb-3">
+      <label class="form-label">valor mínimo</label>
+      <input type="number" class="form-control" formControlName="valorMinimo">
+    </div>
+    <div class="mb-3">
+      <label class="form-label">valor máximo</label>
+      <input type="number" class="form-control" formControlName="valorMaximo">
+    </div>
+    <div class="mb-3">
+      <label class="form-label">plazo máximo</label>
+      <input type="number" class="form-control" formControlName="plazoMaximo">
+    </div>
+    <button type="submit" class="btn btn-primary">Crear</button>
+  </form>
