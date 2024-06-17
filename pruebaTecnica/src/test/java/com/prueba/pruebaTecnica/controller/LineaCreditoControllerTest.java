@@ -10,8 +10,6 @@ import org.mockito.MockitoAnnotations;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
-import java.sql.Timestamp;
-import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
@@ -35,16 +33,16 @@ public class LineaCreditoControllerTest {
         MockitoAnnotations.openMocks(this);
 
         lineaCredito1 = new LineaCredito();
-        lineaCredito1.setId(1);
+        lineaCredito1.setLCreditoId(1);
         lineaCredito1.setValorMaximo(10000f);
         lineaCredito1.setValorMinimo(5000f);
-        lineaCredito1.setPlazoMaximo(LocalDate.now());
+        lineaCredito1.setPlazoMaximo(60);
 
         lineaCredito2 = new LineaCredito();
-        lineaCredito2.setId(2);
+        lineaCredito2.setLCreditoId(2);
         lineaCredito2.setValorMaximo(20000f);
         lineaCredito2.setValorMinimo(10000f);
-        lineaCredito2.setPlazoMaximo(LocalDate.now());
+        lineaCredito2.setPlazoMaximo(60);
     }
 
     @Test
@@ -95,7 +93,7 @@ public class LineaCreditoControllerTest {
         LineaCredito updatedDetails = new LineaCredito();
         updatedDetails.setValorMaximo(15000f);
         updatedDetails.setValorMinimo(8000f);
-        updatedDetails.setPlazoMaximo(LocalDate.now());
+        updatedDetails.setPlazoMaximo(60);
 
         ResponseEntity<LineaCredito> response = lineaCreditoController.updateLineaCredito(1, updatedDetails);
 

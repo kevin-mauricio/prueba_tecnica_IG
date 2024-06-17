@@ -2,17 +2,13 @@ package com.prueba.pruebaTecnica.models;
 
 import jakarta.persistence.*;
 
-import java.sql.Time;
-import java.sql.Timestamp;
-import java.time.LocalDate;
-
 @Entity
 @Table(name = "lineas_credito")
 public class LineaCredito {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "l_credito_id")
-    private Integer id;
+    private Integer LCreditoId;
 
     @Column(name = "valor_maximo", nullable = false)
     private Float valorMaximo;
@@ -21,11 +17,11 @@ public class LineaCredito {
     private Float valorMinimo;
 
     @Column(name = "plazo_maximo", nullable = false)
-    private LocalDate plazoMaximo;
+    private Integer plazoMaximo;
 
     public LineaCredito() {}
 
-    public LineaCredito(Float valorMaximo, Float valorMinimo, LocalDate plazoMaximo) {
+    public LineaCredito(Float valorMaximo, Float valorMinimo, Integer plazoMaximo) {
         this.valorMaximo = valorMaximo;
         this.valorMinimo = valorMinimo;
         this.plazoMaximo = plazoMaximo;
@@ -39,12 +35,12 @@ public class LineaCredito {
         this.valorMaximo = valorMaximo;
     }
 
-    public Integer getId() {
-        return id;
+    public Integer getLCreditoId() {
+        return this.LCreditoId;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setLCreditoId(Integer LCreditoId) {
+        this.LCreditoId = LCreditoId;
     }
 
     public Float getValorMinimo() {
@@ -55,11 +51,11 @@ public class LineaCredito {
         this.valorMinimo = valorMinimo;
     }
 
-    public LocalDate getPlazoMaximo() {
+    public Integer getPlazoMaximo() {
         return plazoMaximo;
     }
 
-    public void setPlazoMaximo(LocalDate plazoMaximo) {
+    public void setPlazoMaximo(Integer plazoMaximo) {
         this.plazoMaximo = plazoMaximo;
     }
 }
